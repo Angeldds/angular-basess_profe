@@ -22,17 +22,18 @@ export class ListComponent {
   //tarea emitimos dato tipo number
   //nombre onDeleteCharacter visible al mundo exterior
   @Output()
-  public onDelete:EventEmitter<number> = new EventEmitter();
+  public onDelete:EventEmitter<string> = new EventEmitter();
 
 //creo un método para mandar
-  public onDeleteCharacter(index:number):void{
-    this.onDelete.emit(index);
+  public onDeleteCharacter(id?:string):void{
+    if (!id) return;
+    this.onDelete.emit(id)
   }
 
 
 //el emiterCharacter es visible dentro de carpeta list
-  public emiterCharacter(indexs:number):void{
-    console.log(indexs);
+  public emiterCharacter(id:string):void{
+    console.log(id);
   }
 }
 
